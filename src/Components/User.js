@@ -1,7 +1,6 @@
 import { FaAddressBook, FaBirthdayCake, FaMap, FaPhoneAlt, FaKey} from "react-icons/fa";
 import { AiTwotoneMail, AiFillTwitterSquare, AiFillFacebook, AiFillInstagram} from "react-icons/ai";
 import React from "react";
-import {Scene} from 'spritejs';
 export default class User extends React.Component {
     
     constructor(props) {
