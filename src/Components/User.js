@@ -21,10 +21,20 @@ export default class User extends React.Component {
              
             switch(theIcon){
                 case 'address':
-                    return display = <p>PARTY</p>;
+                    return display = <p>{this.state.data.results[0].location.street.number}&nbsp; {this.state.data.results[0].location.street.name}<br></br>
+                    {this.state.data.results[0].location.city}, {this.state.data.results[0].location.state}<br></br>
+                    {this.state.data.results[0].location.country} {this.state.data.results[0].location.postcode}</p>;
                 case 'email':
-                    return display = <p>EMAIL</p>;
-                default:
+                    return display = <p>{this.state.data.results[0].email}</p>;
+                case 'dob':
+                    return display = <p>{this.state.data.results[0].dob.date}</p>;
+                case 'map':
+                    return display = <p>Latitude: {this.state.data.results[0].location.coordinates.latitude} Longitude: {this.state.data.results[0].location.coordinates.longitude}</p>;
+                case 'phone':
+                    return display = <p>Cell:{this.state.data.results[0].cell} Home:{this.state.data.results[0].phone} </p>;
+                case 'key':
+                    return display = <p>IDName:{this.state.data.results[0].id.name} Value:{this.state.data.results[0].id.value} </p>;
+                    default:
                     return display = <p>FOO</p>;
                 }
           }
@@ -37,26 +47,19 @@ export default class User extends React.Component {
         <>
         <div className="grid_item">
             <div className="wrapper">
-                <h2 className='address' onClick={() => this.setState({iconSelected : "address"})}><FaAddressBook/></h2>
-                <h2 className='email' onClick={() => this.setState({iconSelected : "email"})}><AiTwotoneMail/></h2>
-                <h2 className='dob'><FaBirthdayCake/></h2>
-                <h2 className='map'><FaMap/></h2>
-                <h2 className='phone'><FaPhoneAlt/></h2>
-                <h2 className='key'><FaKey/></h2>
+                <div className='address' onClick={() => this.setState({iconSelected : "address"})}><FaAddressBook/></div>
+                <div className='email' onClick={() => this.setState({iconSelected : "email"})}><AiTwotoneMail/></div>
+                <div className='dob' onClick={() => this.setState({iconSelected : "dob"})}><FaBirthdayCake/></div>
+                <div className='map' onClick={() => this.setState({iconSelected : "map"})}><FaMap/></div>
+                <div className='phone' onClick={() => this.setState({iconSelected : "phone"})}><FaPhoneAlt/></div>
+                <div className='key' onClick={() => this.setState({iconSelected : "key"})}><FaKey/></div>
             </div>
         </div>
-            <div className="grid_item">
-                <div>{display}</div>
-                {/* <div>{this.state.handleClickedIcon}</div> */}
-            {/* <p>{this.state.data.results[0].location.street.number} &nbsp; {this.state.data.results[0].location.street.name}<br></br>
-                    {this.state.data.results[0].location.city}, {this.state.data.results[0].location.state}<br></br>
-                    {this.state.data.results[0].location.country} {this.state.data.results[0].location.postcode}</p>
-                <p>{this.state.data.results[0].email}</p>
-                <p>{this.state.data.results[0].dob.date}</p>
-                <p>latitude: {this.state.data.results[0].location.coordinates.latitude} | longitude: {this.state.data.results[0].location.coordinates.longitude}</p>
-                <p>cell:{this.state.data.results[0].cell} | home:{this.state.data.results[0].phone} </p>
-                <p>IDName:{this.state.data.results[0].id.name} | Value:{this.state.data.results[0].id.value} </p>  */}
-            </div>
+        <div className="">    
+            <div className='iconDetails'>{display}</div>
+            <h3>Hi I'm {this.state.data.results[0].name.first} {this.state.data.results[0].name.last} and I live in the city {this.state.data.results[0].location.city}, in the country of {this.state.data.results[0].location.country} </h3>
+        </div>
+            
         </>
       );
     }
