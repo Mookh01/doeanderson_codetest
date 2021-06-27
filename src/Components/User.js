@@ -1,7 +1,7 @@
 import { FaAddressBook, FaBirthdayCake, FaMap, FaPhoneAlt, FaKey} from "react-icons/fa";
-import { AiTwotoneMail} from "react-icons/ai";
+import { AiTwotoneMail, AiFillTwitterSquare, AiFillFacebook, AiFillInstagram} from "react-icons/ai";
 import React from "react";
-
+import {Scene} from 'spritejs';
 export default class User extends React.Component {
     
     constructor(props) {
@@ -55,9 +55,15 @@ export default class User extends React.Component {
                 <div className='key' onClick={() => this.setState({iconSelected : "key"})}><FaKey/></div>
             </div>
         </div>
-        <div className="">    
+         
+        <div className="grid_item">  
             <div className='iconDetails'>{display}</div>
-            <h3>Hi I'm {this.state.data.results[0].name.first} {this.state.data.results[0].name.last} and I live in the city {this.state.data.results[0].location.city}, in the country of {this.state.data.results[0].location.country} </h3>
+            <h3>Hi I'm {this.state.data.results[0].name.first} {this.state.data.results[0].name.last} and I live in the city {this.state.data.results[0].location.city}, in the country of {this.state.data.results[0].location.country} </h3>   
+            <div className="social">
+                <AiFillTwitterSquare onClick={()=> window.open("https://twitter.com/?lang=en", "_blank")}></AiFillTwitterSquare>
+                <AiFillFacebook onClick={()=> window.open("https://www.facebook.com/", "_blank")}></AiFillFacebook>
+                <AiFillInstagram onClick={()=> window.open("https://www.instagram.com/", "_blank")}></AiFillInstagram>
+            </div>
         </div>
             
         </>
