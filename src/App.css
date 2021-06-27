@@ -1,0 +1,59 @@
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.grid_items {
+    padding: 3.75%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 0;
+    grid-row-gap: 20px;
+}
+
+.grid_items>div {
+    /* background-color: RoyalBlue; */
+    padding: 0px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0px;
+    row-gap: 2px;
+}
+
+@media only screen and (min-width: 640px) {
+    .grid_items {
+        grid-template-columns: 47.5% 47.5%;
+        grid-column-gap: 5%;
+        grid-row-gap: 20px;
+    }
+    .grid_items>div {
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 981px) {
+    .grid_items {
+        grid-template-columns: 30% 30% 30%;
+        grid-row-gap: 50px;
+    }
+    .grid_items>div {
+        padding: 30px;
+    }
+}
