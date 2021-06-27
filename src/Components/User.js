@@ -7,17 +7,13 @@ export default class User extends React.Component {
         super(props);
         this.state = {
             data : this.props.data, 
-            iconSelected : 'none',
-            hereNow: ''
+            iconSelected : 'none'
         };      
       }
 
     render () {
-        console.log(this.state.data.results[0].gender);
-        console.log(this.state.iconSelected);
         let display = '';
-        this.handleClickedIcon =(theIcon) =>{
-             
+        this.handleClickedIcon =(theIcon) =>{          
             switch(theIcon){
                 case 'address':
                     return display = <p>{this.state.data.results[0].location.street.number}&nbsp; {this.state.data.results[0].location.street.name}<br></br>
@@ -34,12 +30,11 @@ export default class User extends React.Component {
                 case 'key':
                     return display = <p>IDName:{this.state.data.results[0].id.name} Value:{this.state.data.results[0].id.value} </p>;
                     default:
-                    return display = <p>FOO</p>;
+                    return display = <p>Have a great day!</p>;
                 }
           }
 
         if (this.state.iconSelected !== 'none'){
-            console.log('MY CASE: ' + this.state.iconSelected);
             this.handleClickedIcon(this.state.iconSelected)
         }
     return (
