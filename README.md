@@ -9,7 +9,7 @@ I wasn't able to spend the time I wanted on the codetest but will explain the be
 
 # Running out of Time
 6. I'll begin to work on setting up the ability to send emails. I started looking into EmailJS and also considered using Express.js. 
-7. After this I'll connect to a DB to store the data. 
+7. After this I'll connect to a DB to store the data. I thought about just writing to a local file in the code. I also considered trying MongoDB. 
 
 
 
