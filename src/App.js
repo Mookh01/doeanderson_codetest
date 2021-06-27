@@ -1,6 +1,7 @@
 
 import useFetch from "react-fetch-hook";
 import './App.css';
+import User from './Components/User';
 
 export default function App() {
 
@@ -13,6 +14,7 @@ export default function App() {
     <>
     <div className="grid_items">
       <img src={data.results[0].picture.large} alt="random user" />
+      <User data = {data} ></User>
     </div>
     <h1>{data.results[0].name.first} {data.results[0].name.last}</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
